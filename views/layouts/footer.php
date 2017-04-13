@@ -7,7 +7,7 @@
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <ul class="list-inline text-center">
               <li>
-                <a href="#">
+                <a href="#" title="Перейти в группу в Twitter">
                   <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -16,14 +16,14 @@
               </li>
               <li>
                 <a href="#">
-                  <span class="fa-stack fa-lg">
+                  <span class="fa-stack fa-lg" title="Перейти в группу в Facebook">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="#" title="Перейти в группу в VK">
                   <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-vk fa-stack-1x fa-inverse"></i>
@@ -31,7 +31,7 @@
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="#" title="Перейти на YouTube канал">
                   <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-youtube-play fa-stack-1x fa-inverse"></i>
@@ -39,7 +39,7 @@
                 </a>
               </li>
               <li>
-                <a href="https://github.com/bazhen123/A-Nail-Blog">
+                <a href="https://github.com/bazhen123/A-Nail-Blog" title="Посмотреть проект на Github">
                   <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>
