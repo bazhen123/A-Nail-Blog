@@ -49,14 +49,20 @@
                 </div>
                 <div class="row">
                   <div class="col-md-12 post-header-line">
-                    <span class="glyphicon glyphicon-eye-open"></span> <?php echo $postItem['views'];?> |
-                    <span class="glyphicon glyphicon-user"></span> <a href="#"><?php echo $postItem['author_name'];?></a> |
-                    <span class="glyphicon glyphicon-calendar"></span>
-                    <time datetime="<?php echo $postItem['datetime'];?>">
-                      <?php echo $date['day']. ' ' . $date['month'] . ' ' . $date['year'];?> |</time>
-                    <span class="glyphicon glyphicon-comment"></span><a href="#"> <?php echo $postItem['count'];?></a> |
-                    <i class="fa fa-hashtag" aria-hidden="true"></i> Тэги :
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                    <span title="Количество просмотров"><?php echo $postItem['views'];?></span> |
 
+                    <span class="glyphicon glyphicon-user"></span>
+                    <a href="#" title="Автор статьи"><?php echo $postItem['author_name'];?></a> |
+
+                    <span class="glyphicon glyphicon-calendar" title=""></span>
+                    <time datetime="<?php echo $postItem['datetime'];?>" title="Дата публикации">
+                      <?php echo $date['day']. ' ' . $date['month'] . ' ' . $date['year'];?></time> |
+
+                    <span class="glyphicon glyphicon-comment"></span>
+                    <a href="#" title="Количество комментариев"> <?php echo $postItem['count'];?></a>
+
+                    <i class="fa fa-hashtag" aria-hidden="true"></i> Тэги :
                     <?php $tags = explode(',', $postItem['tags']);?>
                     <?php foreach ($tags as $tag):?>
                       <a href="#" class="label label-info">#<?php echo $tag;?></a>

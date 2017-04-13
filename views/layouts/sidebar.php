@@ -50,7 +50,7 @@
             </div>
             <div class="media-body">
               <h4 class="media-heading"><?php echo $latestComment['author'];?></h4>
-              <?php echo $latestComment['text'];?>
+              <?php echo mb_substr(strip_tags($latestComment['text']), 0, 45, 'utf-8');?>
             </div>
           </div>
         <?php endforeach;?>
