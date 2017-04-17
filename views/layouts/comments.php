@@ -15,7 +15,7 @@
           </div>
           <input type="hidden" name="article_id" value="<?php echo $articleId;?>">
           <input type="hidden" name="parent_id" value="0">
-          <input type="submit" class="btn btn-default" name="submit" value="Отправить">
+          <input type="submit" class="btn btn-read-more" name="submit" value="Отправить">
         </form>
       </div>
     <?php endif; ?>
@@ -31,7 +31,10 @@
             </button>
             <span class="name"><?php echo $comment['author'];?></span>
             <time datetime="<?php echo $comment['date'];?>">
-              <?php echo $date['day'] . ' ' . $date['month'] . ' ' . $date['year'] . ' ' . $date['hours'] . ':' . $date['minutes'] . ':' . $date['seconds'];?>
+              <?php
+                echo $date['day'] . ' ' . $date['month'] . ' ' . $date['year'] . ' '
+                . $date['hours'] . ':' . $date['minutes'] . ':' . $date['seconds'];
+              ?>
             </time>
           </div>
 
@@ -56,7 +59,7 @@
                       </div>
                       <input type="hidden" name="article_id" value="<?php echo $artId;?>">
                       <input type="hidden" name="parent_id" value="<?php echo $comment['id'];?>">
-                      <input type="submit" class="btn btn-default" name="submit" value="Отправить">
+                      <input type="submit" class="btn btn-read-more" name="submit" value="Отправить">
                     </form>
                   </div>
                 <?php endif; ?>

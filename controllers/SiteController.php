@@ -6,6 +6,8 @@ class SiteController
   public function actionIndex()
   {
 
+    $title = 'A Nail Blog';
+
     require_once(ROOT . '/views/site/index.php');
 
     return true;
@@ -27,6 +29,8 @@ class SiteController
 
   public function actionAbout()
   {
+    $title = 'A Nail Blog - Контакты';
+
     $categories     = array();
     $topArticles    = array();
     $latestComments = array();

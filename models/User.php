@@ -193,12 +193,12 @@ class User
     $i = 0;
     while ($row = $result->fetch())
     {
-      $comments[$i]['id']         = $row['id'];
-      $comments[$i]['author']     = $row['author'];
-      $comments[$i]['text']       = $row['text'];
-      $comments[$i]['date']       = $row['date'];
-      $comments[$i]['parent_id']  = $row['parent_id'];
-      $comments[$i]['article_id'] = $article_id;
+      $comments[$i]['id']             = $row['id'];
+      $comments[$i]['author']         = $row['author'];
+      $comments[$i]['text']           = $row['text'];
+      $comments[$i]['date']           = $row['date'];
+      $comments[$i]['parent_id']      = $row['parent_id'];
+      $comments[$i]['article_id']     = $article_id;
       $i++;
     }
 

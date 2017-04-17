@@ -4,6 +4,8 @@ class BlogController
 {
   public function actionIndex()
   {
+    $title = 'A Nail Blog - Блог';
+
     $categories     = array();
     $topArticles    = array();
     $latestComments = array();
@@ -41,6 +43,8 @@ class BlogController
      /* echo '<pre>';
     print_r($blogItem);
     echo '</pre>';*/
+      $title = 'A Nail Blog - ' . $blogItem['title'];
+
       require_once(ROOT . '/views/blog/article.php');
     }
     return true;

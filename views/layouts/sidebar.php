@@ -15,9 +15,8 @@
       <div class="panel-heading">Категории</div>
       <div class="list-group">
         <?php foreach($categories as $categoryItem):?>
-          <?php $countArticles = Category::getCountArticlesInCategory($categoryItem['id']);?>
           <a href="/blog/category/<?php echo $categoryItem['id'];?>" class="list-group-item <?php if ($category_id == $categoryItem['id']) echo "active";?>">
-            <span class="badge"><?php echo $countArticles;?></span> <?php echo $categoryItem['name'];?>
+            <span class="badge"><?php echo $categoryItem['count_art'];?></span> <?php echo $categoryItem['name'];?>
           </a>
         <?php endforeach;?>
       </div>
@@ -26,14 +25,12 @@
     <div class="panel panel-info">
       <div class="panel-heading">Топ статей</div>
       <div class="list-group">
-
         <?php foreach ($topArticles as $topArticle):?>
           <a class="list-group-item" href="/blog/article/<?php echo $topArticle['id'];?>">
             <h4 class="list-group-item-heading"><?php echo $topArticle['title'];?></h4>
             <p class="list-group-item-text"><?php echo mb_substr(strip_tags($topArticle['text']), 0, 85, 'utf-8') . ' ...';?></p>
           </a>
         <?php endforeach;?>
-
       </div>
     </div>
 

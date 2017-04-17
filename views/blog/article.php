@@ -30,6 +30,15 @@
             <ol class="breadcrumb">
               <li><a href="/">Главная</a></li>
               <li><a href="/blog">Блог</a></li>
+              <?php foreach($categories as $categoryItem):?>
+                <?php if ($categoryItem['id'] == $blogItem['category_id']):?>
+                  <li>
+                    <a href="/blog/category/<?php echo $categoryItem['id'];?>">
+                      <?php echo $categoryItem['name'];?>
+                    </a>
+                  </li>
+                <?php endif;?>
+              <?php endforeach;?>
               <li class="active"><?php echo $blogItem['title'];?></li>
             </ol>
           </div>
@@ -78,6 +87,8 @@
                   <p><a class="btn btn-read-more" href="javascript:history.back();">&laquo; Назад</a></p>
                 </div>
               </div>
+
+              <!-- Comments -->
               <h5>Комментарии:</h5>
             </div>
           </div>

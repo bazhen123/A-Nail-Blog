@@ -17,8 +17,9 @@ class Category
     $i = 0;
     while ($row = $result->fetch())
     {
-      $categoryList[$i]['id']     = $row['id'];
-      $categoryList[$i]['name']   = $row['name'];
+      $categoryList[$i]['id']         = $row['id'];
+      $categoryList[$i]['name']       = $row['name'];
+      $categoryList[$i]['count_art']  = self::getCountArticlesInCategory($row['id']);
       $i++;
     }
     return $categoryList;

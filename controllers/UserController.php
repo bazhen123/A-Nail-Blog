@@ -4,6 +4,8 @@ class UserController
 {
   public function actionRegister()
   {
+    $title = 'A Nail Blog - Регистрация';
+
     $categories     = array();
     $topArticles    = array();
     $latestComments = array();
@@ -64,6 +66,8 @@ class UserController
 
   public function actionLogin()
   {
+    $title = 'A Nail Blog - Вход';
+
     $categories     = array();
     $topArticles    = array();
     $latestComments = array();

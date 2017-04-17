@@ -4,6 +4,8 @@ class CabinetController
 {
   public function actionIndex()
   {
+    $title = 'A Nail Blog - Акаунт';
+
     $categories     = array();
     $topArticles    = array();
     $latestComments = array();
@@ -23,6 +25,8 @@ class CabinetController
 
   public function actionEdit()
   {
+    $title = 'A Nail Blog - Акаунт';
+
     $categories     = array();
     $topArticles    = array();
     $latestComments = array();

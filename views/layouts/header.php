@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Nail blog</title>
+  <title><?php echo $title;?></title>
 
   <!-- Custom Fonts -->
 
