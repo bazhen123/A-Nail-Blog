@@ -25,13 +25,17 @@ class Category
     return $categoryList;
   }
 
-  public static function getCategoryArticles($category_id)
+  public static function getCategoryArticles($category_id, $page = 1)
   {
+    $page = intval($page);
+    $offset = ($page - 1) * Blog::SHOW_BY_DEFAULT;
+
     $db = Db::getConnection();
 
     $categoryArticle = array();
 
-    $result = $db->query('SELECT * FROM blog WHERE category_id="' . ($category_id) . '" ORDER BY datetime DESC LIMIT 10');
+    $result = $db->query('SELECT * FROM blog WHERE category_id=' . ($category_id) .
+      ' ORDER BY datetime DESC LIMIT ' . Blog::SHOW_BY_DEFAULT . ' OFFSET ' . $offset);
 
     $i = 0;
     while($row = $result->fetch()) {
@@ -55,8 +59,6 @@ class Category
   public static function getCountArticlesInCategory($category_id)
   {
     $db = Db::getConnection();
-
-    $categoryArticle = array();
 
     $result = $db->query('SELECT id FROM blog WHERE category_id=' . $category_id);
 

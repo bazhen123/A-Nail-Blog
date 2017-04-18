@@ -88,7 +88,10 @@
             </div>
 
           <?php endforeach;?>
-
+          <!-- Pagination -->
+          <div class="row">
+            <?php echo $pagination->get();?>
+          </div>
 				</div>
 			</div>
 		</main>

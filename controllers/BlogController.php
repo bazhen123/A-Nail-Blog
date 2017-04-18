@@ -2,7 +2,7 @@
 
 class BlogController
 {
-  public function actionIndex()
+  public function actionIndex($page)
   {
     $title = 'A Nail Blog - Блог';
 
@@ -12,14 +12,18 @@ class BlogController
     $categories     = Category::getCategoriesList();
     $topArticles    = Blog::getTopList(3);
     $latestComments = User::getLatestComments(3);
+    $total = Blog::getTotalCountArticles();
 
     // 'Список новостей';
     $postList = array();
-    $postList = Blog::getBlogList(10);
+    $postList = Blog::getBlogList($page);
 
     /*echo '<pre>';
     print_r($newsList);
     echo '</pre>';*/
+
+    // Создаём объект Pagination - постраничная навигация
+    $pagination = new Pagination($total, $page, Blog::SHOW_BY_DEFAULT, 'page-');
 
     require_once (ROOT . '/views/blog/index.php');
 

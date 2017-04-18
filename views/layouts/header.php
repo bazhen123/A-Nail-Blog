@@ -55,7 +55,7 @@
           <a href="/about/">Обо мне</a>
         </li>
         <li>
-          <a href="/blog/">Блог</a>
+          <a href="/blog/page-1/">Блог</a>
         </li>
         <li>
           <a href="/contact/">Контакты</a>

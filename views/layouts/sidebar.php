@@ -15,7 +15,7 @@
       <div class="panel-heading">Категории</div>
       <div class="list-group">
         <?php foreach($categories as $categoryItem):?>
-          <a href="/blog/category/<?php echo $categoryItem['id'];?>" class="list-group-item <?php if ($category_id == $categoryItem['id']) echo "active";?>">
+          <a href="/blog/category/<?php echo $categoryItem['id'];?>/page-1" class="list-group-item <?php if ($category_id == $categoryItem['id']) echo "active";?>">
             <span class="badge"><?php echo $categoryItem['count_art'];?></span> <?php echo $categoryItem['name'];?>
           </a>
         <?php endforeach;?>
@@ -51,18 +51,6 @@
             </div>
           </div>
         <?php endforeach;?>
-      </div>
-    </div>
-
-    <div class="panel panel-info">
-      <div class="panel-body">
-        <h2>Share love</h2>
-        <ul class="list-inline">
-          <li><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></li>
-          <li><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></li>
-          <li><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></li>
-          <li><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></li>
-        </ul>
       </div>
     </div>
 

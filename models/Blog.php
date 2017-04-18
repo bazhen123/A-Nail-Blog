@@ -2,6 +2,7 @@
 
 class Blog
 {
+  const SHOW_BY_DEFAULT = 5;
   /**
    * Returns single blog item with specified id
    * @param integer $id
@@ -29,14 +30,17 @@ class Blog
   /**
    * Returns an array of blog items
    */
-  public static function getBlogList($limit) {
+  public static function getBlogList($page = 1)
+  {
+    $page = intval($page);
+    $offset = ($page - 1) * self::SHOW_BY_DEFAULT;
 
     // Запрос к БД
     $db = Db::getConnection();
 
     $blogList = array();
 
-    $result = $db->query('SELECT * FROM blog ORDER BY datetime DESC LIMIT ' . $limit);
+    $result = $db->query('SELECT * FROM blog ORDER BY datetime DESC LIMIT ' . self::SHOW_BY_DEFAULT . ' OFFSET ' . $offset);
 
     $i = 0;
     while($row = $result->fetch()) {
@@ -102,4 +106,14 @@ class Blog
     return $dateTime;
   }
 
+  public static function getTotalCountArticles()
+  {
+    $db = Db::getConnection();
+
+    $result = $db->query('SELECT count(id) AS count FROM blog ');
+    $result->setFetchMode(PDO::FETCH_ASSOC);
+    $row = $result->fetch();
+
+    return $row['count'];
+  }
 }

@@ -29,7 +29,7 @@
             <div class="row">
               <ol class="breadcrumb">
                 <li><a href="/">Главная</a></li>
-                <li><a href="/blog">Блог</a></li>
+                <li><a href="/blog/1">Блог</a></li>
 
                 <?php foreach($categories as $categoryItem):?>
                   <?php if ($category_id == $categoryItem['id']): ?>
@@ -87,6 +87,10 @@
               </div>
 
             <?php endforeach;?>
+            <!-- Pagination -->
+            <div class="row">
+              <?php echo $pagination->get();?>
+            </div>
 
           </div>
         </div>

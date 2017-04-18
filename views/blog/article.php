@@ -29,7 +29,7 @@
           <div class="row">
             <ol class="breadcrumb">
               <li><a href="/">Главная</a></li>
-              <li><a href="/blog">Блог</a></li>
+              <li><a href="/blog/page-1/">Блог</a></li>
               <?php foreach($categories as $categoryItem):?>
                 <?php if ($categoryItem['id'] == $blogItem['category_id']):?>
                   <li>
@@ -49,9 +49,9 @@
             <div class="col-md-12 post">
               <div class="row">
                 <div class="col-md-12">
-                  <h4>
+                  <h3>
                     <strong class="post-title text-capitalize"><?php echo $blogItem['title'];?></strong>
-                  </h4>
+                  </h3>
                 </div>
               </div>
 
