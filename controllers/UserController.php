@@ -16,45 +16,48 @@ class UserController
     $name     = '';
     $email    = '';
     $password = '';
+    $captcha  = '';
     $role     = '';
     $result   = false;
 
     if (isset($_POST['submit'])) {
-      $name       = $_POST['name'];
-      $email      = $_POST['email'];
-      $password   = $_POST['password'];
-      $repassword = $_POST['repassword'];
+      $name       = User::formChars($_POST['name']);
+      $email      = User::formChars($_POST['email']);
+      $password   = User::formChars($_POST['password']);
+      $captcha    = User::formChars($_POST['captcha']);
       $role       = 'user';
       $errors     = false;
 
       if (!User::checkName($name))
       {
-        $errors[] = 'Имя не должно быть короче 2-х символов';
+        $errors['name'] = 'Имя не должно быть короче 2-х символов';
       }
 
       if (!User::checkEmail($email))
       {
-        $errors[] = 'Неправильный email';
+        $errors['email'] = 'Неправильный email';
       }
 
       if (!User::checkPassword($password))
       {
-        $errors[] = 'Пароль не должен быть короче 6-ти символов';
-      }
-
-      if (!User::checkRepassword($password, $repassword))
-      {
-        $errors[] = 'Пароли не совпадают';
+        $errors['password'] = 'Пароль не должен быть короче 6-ти символов';
       }
 
       if (User::checkEmailExists($email))
       {
-        $errors[] = 'Такой email уже используется';
+        $errors['exists_email'] = 'Такой email уже используется';
+      }
+
+      if (!User::checkCaptcha($captcha))
+      {
+        $errors['captcha'] = 'Не правильный код';
       }
 
       if ($errors == false)
       {
-        $result = User::register($name, $email, $password, $role);
+        $password = User::genPass($password, $email);
+        $result   = User::register($name, $email, $password, $role);
+        unset( $_SESSION["img_code"] );
         header("Location: /cabinet/");
       }
     }
@@ -82,6 +85,7 @@ class UserController
     {
       $email    = $_POST['email'];
       $password = $_POST['password'];
+      $password = User::genPass($password, $email);
 
       $errors = false;
 
@@ -92,7 +96,8 @@ class UserController
       {
         // Если данные не правильные - показываем ошибку
         $errors[] = 'Не правильные данные для входа на сайт';
-      } else
+      }
+      else
       {
         // Если данные правильные, запоминаем пользователя в сесии
         User::auth($userId);
@@ -129,10 +134,10 @@ class UserController
     $redicet = $redicet . '#comment_form';
 
     if (isset($_POST['submit'])) {
-      $text = $_POST['comment'];
+      $text       = User::formChars($_POST['comment']);
       $article_id = $_POST['article_id'];
-      $parent_id = $_POST['parent_id'];
-      $errors = false;
+      $parent_id  = $_POST['parent_id'];
+      $errors     = false;
 
       if (!User::checkMessage($text))
       {
@@ -153,6 +158,5 @@ class UserController
 
 
   }
-
 
 }

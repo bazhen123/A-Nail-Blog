@@ -6,11 +6,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <div class="post-heading">
-            <h1>Man must explore, and this is exploration at its greatest</h1>
-            <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
-            <span class="meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</span>
-          </div>
+          <div class="post-heading"></div>
         </div>
       </div>
 
@@ -29,7 +25,7 @@
             <div class="row">
               <ol class="breadcrumb">
                 <li><a href="/">Главная</a></li>
-                <li><a href="/blog/1">Блог</a></li>
+                <li><a href="/blog/page-1">Блог</a></li>
 
                 <?php foreach($categories as $categoryItem):?>
                   <?php if ($category_id == $categoryItem['id']): ?>
@@ -88,7 +84,7 @@
 
             <?php endforeach;?>
             <!-- Pagination -->
-            <div class="row">
+            <div id="pagination" class="row">
               <?php echo $pagination->get();?>
             </div>
 

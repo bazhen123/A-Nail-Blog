@@ -43,18 +43,6 @@ class User
   }
 
   /*
-   * Проверяем совпадают ли пароли
-   */
-  public static function checkRepassword($password, $repassword)
-  {
-    if ($repassword === $password)
-    {
-      return true;
-    }
-    return false;
-  }
-
-  /*
    * Проверяем email
    */
   public static function checkEmail($email)
@@ -83,6 +71,31 @@ class User
       return true;
     }
     return false;
+  }
+
+  /*
+   * Проверяем правильность ввода каптчи
+   */
+  public static function checkCaptcha($captcha)
+  {
+    if (strtoupper($captcha) == strtoupper($_SESSION["img_code"]))
+    {
+      return true;
+    }
+    return false;
+  }
+
+  public static function formChars($p1)
+  {
+    return nl2br(strip_tags(trim($p1)));
+  }
+
+  /*
+   * Шифрование пароля
+   */
+  public static function genPass($pass, $login)
+  {
+    return md5('ANAILBLOG' . md5('321' . $pass . '123') . md5('891' . $login . '654'));
   }
 
   /*

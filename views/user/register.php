@@ -29,25 +29,17 @@
               </ol>
             </div>
 
-            <div class="col-sm-8 col-sm-offset-2 padding-right">
-              <?php if (isset($errors) && is_array($errors)): ?>
-                <div class="alert alert-danger" role="alert">
-                  <?php foreach ($errors as $error): ?>
-                    <p>- <?php echo $error;?></p>
-                  <?php endforeach; ?>
-                </div>
-              <?php endif ;?>
-            </div>
-
             <div class="row">
               <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <form method="post" action="#" id="registerForm">
+                <form method="post" action="" id="registerForm">
 
                   <div class="row control-group">
                     <div class="form-group col-xs-12 floating-label-form-group controls">
                       <label>Имя или Ник</label>
                       <input type="text" name="name" class="form-control" placeholder="Имя или Ник" value="<?php echo $name; ?>" required>
-                      <p class="help-block text-danger"></p>
+                      <p class="help-block text-danger">
+                        <?php if (isset($errors['name'])) echo $errors['name'];?>
+                      </p>
                     </div>
                   </div>
                   
@@ -55,23 +47,40 @@
                     <div class="form-group col-xs-12 floating-label-form-group controls">
                       <label>Email адрес</label>
                       <input type="email" name="email" class="form-control" placeholder="Email" value="<?php echo $email; ?>" required>
-                      <p class="help-block text-danger"></p>
+                      <p class="help-block text-danger">
+                        <?php if (isset($errors['email'])) echo $errors['email'];?>
+                        <?php if (isset($errors['exists_email'])) echo $errors['exists_email'];?>
+                      </p>
                     </div>
                   </div>
 
                   <div class="row control-group">
                     <div class="form-group col-xs-12 floating-label-form-group controls">
                       <label>Пароль</label>
-                      <input type="password" name="password" class="form-control" placeholder="Пароль" required >
-                      <p class="help-block text-danger"></p>
+                      <input type="password" name="password" class="form-control" placeholder="Пароль" required autocomplete="off">
+                      <p class="help-block text-danger">
+                        <?php if (isset($errors['password'])) echo $errors['password'];?>
+                      </p>
                     </div>
                   </div>
-                  
+
                   <div class="row control-group">
                     <div class="form-group col-xs-12 floating-label-form-group controls">
-                      <label>Повторите пароль</label>
-                      <input type="password" name="repassword" class="form-control" placeholder="Повторите пароль" required >
-                      <p class="help-block text-danger"></p>
+                      <label>Введите код с картинки</label>
+                      <input type="text" name="captcha" class="form-control" placeholder="Введите код с картинки" required autocomplete="off">
+                      <p class="help-block text-danger">
+                        <?php if (isset($errors['captcha'])) echo $errors['captcha'];?>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                      <img src="<?php echo '../../components/Captcha.php'; ?>" id='capcha-image'>
+                      <!-- Сама капча -->
+                      <a class="btn btn-link" href="javascript:void(0);"
+                         onclick="document.getElementById('capcha-image').src='../../components/Captcha.php?id='+Math.round(Math.random()*9999)">Обновить</a>
+                      <!-- Ссылка на обновление капчи. Запрашиваем у captcha.php случайное изображение.  -->
                     </div>
                   </div>
                   <br>

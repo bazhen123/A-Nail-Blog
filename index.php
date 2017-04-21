@@ -10,7 +10,7 @@ session_start();
 
 // 2. Подключение файлов системы
 define('ROOT', dirname(__FILE__));
-require_once(ROOT.'/components/Autoload.php');
+require_once(ROOT . '/components/Autoload.php');
 
 // 4. Вызов Router
 $router = new Router();

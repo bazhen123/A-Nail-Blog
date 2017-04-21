@@ -25,18 +25,18 @@ h6 {
 
 .label-info {
     color: #fff;
-    background-color: #0085a1;
-    border-color: #0085a1;
+    background-color: #2C75FF;
+    border-color: #2C75FF;
 }
 
 .panel-info {
-    border-color: #0085a1;
+    border-color: #2C75FF;
 }
 
 .panel-info > .panel-heading {
     color: #fff;
-    background-color: #0085a1;
-    border-color: #0085a1;
+    background-color: #2C75FF;
+    border-color: #2C75FF;
 }
 
 .breadcrumb {
@@ -47,9 +47,9 @@ h6 {
 .list-group-item.active,
 .list-group-item.active:focus,
 .list-group-item.active:hover {
-    color: #0085a1;
+    color: #2C75FF;
     background-color: #fff;
-    border-color: #0085a1;
+    border-color: #2C75FF;
     font-weight: bold;
 }
 
@@ -57,7 +57,7 @@ h6 {
 .list-group-item.active:focus > .badge,
 .list-group-item.active:hover > .badge {
     color: #fff;
-    background-color: #0085a1;
+    background-color: #2C75FF;
 }
 
 a {
@@ -66,7 +66,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #0085A1;
+    color: #2C75FF;
 }
 
 a img:hover,
@@ -145,7 +145,7 @@ hr.small {
 
     .navbar-custom .nav li ul.dropdown-menu a:hover,
     .navbar-custom .nav li ul.dropdown-menu a:focus {
-        color: #0085A1;
+        color: #2C75FF;
     }
 }
 
@@ -179,7 +179,7 @@ hr.small {
 
     .navbar-custom.is-fixed .navbar-brand:hover,
     .navbar-custom.is-fixed .navbar-brand:focus {
-        color: #0085A1;
+        color: #2C75FF;
     }
 
     .navbar-custom.is-fixed .nav li a {
@@ -188,7 +188,7 @@ hr.small {
 
     .navbar-custom.is-fixed .nav li a:hover,
     .navbar-custom.is-fixed .nav li a:focus {
-        color: #0085A1;
+        color: #2C75FF;
     }
 
     .navbar-custom.is-visible {
@@ -329,16 +329,19 @@ hr.small {
     margin-bottom: 5px;
     padding-bottom: 5px;
 }
-.post-comments .comment-meta:last-child{
+
+.post-comments .comment-meta:last-child {
     border-bottom: none;
 }
+
 .post-comments .comment-meta a {
     font-size: 12px;
     color: grey;
     font-weight: bolder;
     margin-right: 5px;
 }
-.post-comments .media-body p{
+
+.post-comments .media-body p {
     margin: 20px 0;
 }
 
@@ -355,10 +358,12 @@ hr.small {
     font-size: 12px;
     color: grey;
 }
-.post-comments .media-heading .name{
+
+.post-comments .media-heading .name {
     text-transform: capitalize;
     font-weight: bold;
 }
+
 a:hover {
     text-decoration: none;
 }
@@ -376,18 +381,18 @@ a:hover {
     -webkit-border-radius: 0px;
     border-radius: 0px;
     display: inline-block;
-    border: 2px solid #0085A1;
+    border: 2px solid #2C75FF;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 12px;
-    color: #0085A1;
+    color: #2C75FF;
     background: #fff;
 }
 
 .btn-read-more:hover {
     color: #FFF;
-    background: #0085A1;
+    background: #2C75FF;
 }
 
 .post {
@@ -395,7 +400,7 @@ a:hover {
 }
 
 .post-title {
-    color: #0085A1;
+    color: #2C75FF;
 }
 
 .post .glyphicon {
@@ -427,13 +432,13 @@ footer .copyright {
 ::-moz-selection {
     color: white;
     text-shadow: none;
-    background: #0085A1;
+    background: #2C75FF;
 }
 
 ::selection {
     color: white;
     text-shadow: none;
-    background: #0085A1;
+    background: #2C75FF;
 }
 
 img::-moz-selection {
@@ -452,7 +457,7 @@ img::-moz-selection {
 }
 
 body {
-    -webkit-tap-highlight-color: #0085A1;
+    -webkit-tap-highlight-color: #2C75FF;
 }
 
 .floating-label-form-group {
@@ -504,12 +509,21 @@ body {
 }
 
 .floating-label-form-group-with-focus label {
-    color: #0085A1;
+    color: #2C75FF;
 }
 
 form .row:first-child .floating-label-form-group {
     border-top: 1px solid #eeeeee;
 }
+
+.text-danger{
+    color: #a94442;
+}
+.captcha{
+    /*width: 110px;*/
+    /*height: 30px;*/
+}
+
 #registerForm .btn,
 #loginForm .btn,
 #contactForm .btn {
@@ -530,17 +544,18 @@ form .row:first-child .floating-label-form-group {
 
 .btn-default:hover,
 .btn-default:focus {
-    background-color: #0085A1;
-    border: 1px solid #0085A1;
+    background-color: #2C75FF;
+    border: 1px solid #2C75FF
+;
     color: white;
 }
 
 .gallery {
     width: 100%;
-    border: 1px solid #0085A1;
+    border: 1px solid #2C75FF;
     padding: 10px;
     border-radius: 7px;
-    background-color: #0085A1;
+    background-color: #2C75FF;
     margin: 0 auto;
 }
 
@@ -553,4 +568,23 @@ form .row:first-child .floating-label-form-group {
 
 .fotorama__nav {
     text-align: left;
+}
+
+/* Pagination */
+#pagination{
+    text-align: center;
+}
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color: #2C75FF;
+    border-color: #2C75FF;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+    color: #2C75FF;
 }
