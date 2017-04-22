@@ -29,6 +29,12 @@
               </ol>
             </div>
 
+            <?php if($success):?>
+              <div class="row">
+                <p class="help-block text-success"><?php echo $success;?></p>
+              </div>
+            <?php else:?>
+
             <div class="row">
               <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <form method="post" action="" id="registerForm">
@@ -36,8 +42,9 @@
                   <div class="row control-group">
                     <div class="form-group col-xs-12 floating-label-form-group controls">
                       <label>Имя или Ник</label>
-                      <input type="text" name="name" class="form-control" placeholder="Имя или Ник" value="<?php echo $name; ?>" required>
-                      <p class="help-block text-danger">
+                      <input type="text" name="name" class="form-control" placeholder="Имя или Ник"
+                             value="<?php echo $name; ?>" required data-toggle="help-block" data-target="#name">
+                      <p id="name" class="help-block text-danger">
                         <?php if (isset($errors['name'])) echo $errors['name'];?>
                       </p>
                     </div>
@@ -46,8 +53,9 @@
                   <div class="row control-group">
                     <div class="form-group col-xs-12 floating-label-form-group controls">
                       <label>Email адрес</label>
-                      <input type="email" name="email" class="form-control" placeholder="Email" value="<?php echo $email; ?>" required>
-                      <p class="help-block text-danger">
+                      <input type="email" name="email" class="form-control" placeholder="Email"
+                             value="<?php echo $email; ?>" required data-toggle="help-block" data-target="#email">
+                      <p id="email" class="help-block text-danger">
                         <?php if (isset($errors['email'])) echo $errors['email'];?>
                         <?php if (isset($errors['exists_email'])) echo $errors['exists_email'];?>
                       </p>
@@ -57,8 +65,9 @@
                   <div class="row control-group">
                     <div class="form-group col-xs-12 floating-label-form-group controls">
                       <label>Пароль</label>
-                      <input type="password" name="password" class="form-control" placeholder="Пароль" required autocomplete="off">
-                      <p class="help-block text-danger">
+                      <input type="password" name="password" class="form-control" placeholder="Пароль"
+                             required autocomplete="off" data-toggle="help-block" data-target="#password">
+                      <p id="password" class="help-block text-danger">
                         <?php if (isset($errors['password'])) echo $errors['password'];?>
                       </p>
                     </div>
@@ -67,8 +76,9 @@
                   <div class="row control-group">
                     <div class="form-group col-xs-12 floating-label-form-group controls">
                       <label>Введите код с картинки</label>
-                      <input type="text" name="captcha" class="form-control" placeholder="Введите код с картинки" required autocomplete="off">
-                      <p class="help-block text-danger">
+                      <input type="text" name="captcha" class="form-control" placeholder="Введите код с картинки"
+                             required autocomplete="off" data-toggle="help-block" data-target="#captcha">
+                      <p id="captcha" class="help-block text-danger">
                         <?php if (isset($errors['captcha'])) echo $errors['captcha'];?>
                       </p>
                     </div>
@@ -93,6 +103,7 @@
                 </form>
               </div>
             </div>
+            <?php endif;?>
 
           </div>
         </div>

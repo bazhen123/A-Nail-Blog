@@ -19,6 +19,7 @@ class UserController
     $captcha  = '';
     $role     = '';
     $result   = false;
+    $success  = false;
 
     if (isset($_POST['submit'])) {
       $name       = User::formChars($_POST['name']);
@@ -57,8 +58,21 @@ class UserController
       {
         $password = User::genPass($password, $email);
         $result   = User::register($name, $email, $password, $role);
+        // тема письма
+        $subject  = 'Подтверждение регистрацию на сайте A Nail Blog';
+        $code     =  substr(base64_encode($email), 0, -1);
+        // ссылка на подтверждение
+        $link     = 'ссылка для активации: http://bazhenbazhenov.tk/user/activate/' . substr($code, -5) . substr($code, 0, -5);
+        // текст письма
+        $message  = $link;
+        $header   = 'From: A Nail Blog: bazhen@bazhenbazhenov.tk';
+
+        mail($email, $subject, $message, $header);
+
+        $_SESSION['regEmail'] = $email;
+        $success = 'Вы успешно зарегистрировались, на указанный Вами E-mail отправлено сообщение. 
+        Для подтверждения регистрации перейдите по ссылке в сообщении.';
         unset( $_SESSION["img_code"] );
-        header("Location: /cabinet/");
       }
     }
 
@@ -77,6 +91,16 @@ class UserController
     $categories     = Category::getCategoriesList();
     $topArticles    = Blog::getTopList(3);
     $latestComments = User::getLatestComments(3);
+
+    if (isset($_SESSION['active_email']))
+    {
+      $successActive  = $_SESSION['active_email'];
+    }
+
+    if (isset($_SESSION['error_active_email']))
+    {
+      $errorActive    = $_SESSION['error_active_email'];
+    }
 
     $email    = '';
     $password = '';
@@ -107,6 +131,9 @@ class UserController
       }
     }
     require_once (ROOT . '/views/user/login.php');
+
+    unset($_SESSION['active_email']);
+    unset($_SESSION['error_active_email']);
 
     return true;
   }
@@ -156,7 +183,49 @@ class UserController
 
     return true;
 
+  }
 
+  public function actionActivate($code)
+  {
+    if (User::isGuest())
+    {
+      $email = base64_decode(substr($code, 5) . substr($code, 0, 5));
+
+      if (strpos($email, '@'))
+      {
+        $active = User::activeEmailStatus($email);
+        if (!$active) {
+          $result = User::updateActive($email);
+          if ($result) {
+            $success = ' E-mail ' . $email . ' успешно подтверждён.';
+            $_SESSION['active_email'] = $success;
+            header("Location: /user/login");
+            return true;
+          }
+          else
+          {
+            $error = 'Ошибка активации';
+            $_SESSION['error_active_email'] = $error;
+            header("Location: /user/login");
+            return true;
+          }
+        }
+        else
+        {
+          $success = ' E-mail ' . $email . ' уже был подтверждён ранее.';
+          $_SESSION['active_email'] = $success;
+          header("Location: /user/login");
+          return true;
+        }
+      }
+      else
+      {
+        $error = 'E-mail не подтверждён.';
+        $_SESSION['error_active_email'] = $error;
+        header("Location: /user/login");
+      }
+    }
+    return true;
   }
 
 }

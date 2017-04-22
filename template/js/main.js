@@ -41,5 +41,11 @@ $('[data-toggle="collapse"]').on('click', function() {
     var currentIcon = $this.find('.glyphicon');
     currentIcon.toggleClass('glyphicon-plus glyphicon-minus');
     $parent.find('.glyphicon').not(currentIcon).removeClass('glyphicon-minus').addClass('glyphicon-plus');
-
 });
+
+// Hide help-bloch in form
+$('[data-toggle="help-block"]').focus(function () {
+    var help_block = $(this).attr('data-target');
+    console.log(help_block);
+    $(help_block).hide('fast');
+})

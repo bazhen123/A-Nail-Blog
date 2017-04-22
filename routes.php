@@ -2,7 +2,7 @@
 
 return array(
 
-  'user/activate/([a-zA-Z0-9]+)'          => 'user/activate/$1',        // actionActivate в UserController
+  'user/activate/([0-9]+[a-z}+[A-Z}+)'    => 'user/activate/$1',        // actionActivate в UserController
   'user/comments'                         => 'user/comments',           // actionComment в UserController
   'user/register'                         => 'user/register',           // actionRegister в UserController
   'user/login'                            => 'user/login',              // actionLogin в UserController

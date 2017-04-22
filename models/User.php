@@ -4,19 +4,21 @@ class User
 {
 
   public static function register($name, $email, $password, $role)
-  {
-    $db = Db::getConnection();
-    $sql = 'INSERT INTO user (name, email, password, role) VALUES (:name, :email, :password, :role)';
+{
+$db = Db::getConnection();
+$sql = 'INSERT INTO user (name, email, password, role, active) VALUES (:name, :email, :password, :role, :active)';
+$active = 0;
 
-    $result = $db->prepare($sql);
-    $result->bindParam(':name', $name, PDO::PARAM_STR);
-    $result->bindParam(':email', $email, PDO::PARAM_STR);
-    $result->bindParam(':password', $password, PDO::PARAM_STR);
-    $result->bindParam(':role', $role, PDO::PARAM_STR);
+$result = $db->prepare($sql);
+$result->bindParam(':name', $name, PDO::PARAM_STR);
+$result->bindParam(':email', $email, PDO::PARAM_STR);
+$result->bindParam(':password', $password, PDO::PARAM_STR);
+$result->bindParam(':role', $role, PDO::PARAM_STR);
+$result->bindParam(':active', $active, PDO::PARAM_STR);
 
-    return $result->execute();
+return $result->execute();
 
-  }
+}
 
   /*
    * Проверяем имя: не менее, чем 2 символа
@@ -99,6 +101,43 @@ class User
   }
 
   /*
+   * Обновляем статус регистрации пользователя
+   */
+  public static function updateActive($email)
+  {
+    $db = Db::getConnection();
+    $sql = 'UPDATE user SET active=:active WHERE email = :email';
+    $active = 1;
+
+    $result = $db->prepare($sql);
+    $result->bindParam(':email', $email, PDO::PARAM_INT);
+    $result->bindParam(':active', $active, PDO::PARAM_INT);
+    $result->execute();
+
+    return true;
+  }
+  /*
+   * Получаем статус активации E-mail ползователя
+   */
+  public static function activeEmailStatus($email)
+  {
+    $db = Db::getConnection();
+    $sql = 'SELECT active FROM user WHERE email = :email';
+
+    $result = $db->prepare($sql);
+    $result->bindParam(':email', $email, PDO::PARAM_INT);
+    $result->execute();
+    $result->setFetchMode(PDO::FETCH_ASSOC);
+
+    $active = $result->fetch();
+    if ($active['active'] == '1')
+    {
+      return true;
+    }
+    return false;
+  }
+
+  /*
    * Проверяем существует ли пользователь с заданными $email и $password
    * @param string $email
    * @param string $password
@@ -107,14 +146,17 @@ class User
   public static function checkUserData($email, $password)
   {
     $db = Db::getConnection();
-    $sql = 'SELECT * FROM user WHERE email = :email AND password = :password';
+    $sql = 'SELECT * FROM user WHERE email = :email AND password = :password AND active=:active';
+    $active = 1;
 
     $result = $db->prepare($sql);
     $result->bindParam(':email', $email, PDO::PARAM_INT);
     $result->bindParam(':password', $password, PDO::PARAM_INT);
+    $result->bindParam(':active', $active, PDO::PARAM_INT);
     $result->execute();
 
     $user = $result->fetch();
+
     if ($user)
     {
       return $user['id'];

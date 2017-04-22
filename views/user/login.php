@@ -30,12 +30,11 @@
             </div>
 
             <div class="col-sm-8 col-sm-offset-2 padding-right">
-              <?php if (isset($errors) && is_array($errors)): ?>
-                <ul>
-                  <?php foreach ($errors as $error): ?>
-                    <li style="color: red;">- <?php echo $error;?></li>
-                  <?php endforeach; ?>
-                </ul>
+              <?php if (isset($successActive)): ?>
+                <p class="help-bloch text-success"><?php echo $successActive;?></p>
+              <?php endif ;?>
+              <?php if (isset($errorActive)): ?>
+                <p class="help-bloch text-danger"><?php echo $errorActive;?></p>
               <?php endif ;?>
             </div>
 
@@ -55,7 +54,13 @@
                     <div class="form-group col-xs-12 floating-label-form-group controls">
                       <label>Пароль</label>
                       <input type="password" name="password" class="form-control" placeholder="Пароль" required >
-                      <p class="help-block text-danger"></p>
+                      <p class="help-block text-danger">
+                        <?php if (isset($errors) && is_array($errors)): ?>
+                          <?php foreach ($errors as $error): ?>
+                            <?php echo $error;?>
+                          <?php endforeach; ?>
+                        <?php endif ;?>
+                      </p>
                     </div>
                   </div>
                   <br>

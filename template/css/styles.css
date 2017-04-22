@@ -519,9 +519,8 @@ form .row:first-child .floating-label-form-group {
 .text-danger{
     color: #a94442;
 }
-.captcha{
-    /*width: 110px;*/
-    /*height: 30px;*/
+#capcha-image{
+    margin: 10px;
 }
 
 #registerForm .btn,
