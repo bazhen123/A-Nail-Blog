@@ -66,7 +66,15 @@
                   <br>
 
                   <div class="row">
-                    <div class="form-group col-xs-12">
+                    <div class="form-group">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" name="remember"> Запомнить меня
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
                       <input type="submit" class="btn btn-default" name="submit" value="Войти">
                     </div>
                   </div>
@@ -75,6 +83,7 @@
               <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="row">
                   <a class="btn btn-link" href="/user/register/">Зарегистрироваться</a>
+                  <a class="btn btn-link" href="/user/restore/">Восстановить пароль</a>
                 </div>
               </div>
             </div>

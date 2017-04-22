@@ -5,6 +5,7 @@ return array(
   'user/activate/([a-zA-Z0-9]+)'          => 'user/activate/$1',        // actionActivate в UserController
   'user/comments'                         => 'user/comments',           // actionComment в UserController
   'user/register'                         => 'user/register',           // actionRegister в UserController
+  'user/restore'                          => 'user/restore',            // actionRestore в UserController
   'user/login'                            => 'user/login',              // actionLogin в UserController
   'user/logout'                           => 'user/logout',             // actionLogout в UserController
 
@@ -19,5 +20,6 @@ return array(
 
   'about'                                 =>  'site/about',             // actionAbout в SiteController
   'contact'                               =>  'site/contact',           // actionContact в SiteController
+  'error404'                              =>  'site/error404',          // action404 в SiteController
   ''                                      =>  'site/index',             // actionIndex в SiteController
 );

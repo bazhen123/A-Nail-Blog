@@ -126,6 +126,11 @@ class UserController
         // Если данные правильные, запоминаем пользователя в сесии
         User::auth($userId);
 
+        if (isset($_POST['remember']))
+        {
+          setcookie('remember', $_SESSION['user'], strtotime('+30 days'), '/');
+        }
+
         // Перенаправляем пользователя в закрытую часть - кабинет
         header("Location: /cabinet/");
       }
@@ -144,6 +149,8 @@ class UserController
   public function actionLogout()
   {
     unset($_SESSION['user']);
+    setcookie('remember', '', strtotime('-30 days'), '/');
+    unset($_COOKIE['remember']);
     header("Location: /");
   }
 

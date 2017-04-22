@@ -182,6 +182,12 @@ return $result->execute();
       return $_SESSION['user'];
     }
 
+    if (isset($_COOKIE['remember']))
+    {
+      $_SESSION['user'] = $_COOKIE['remember'];
+      return $_SESSION['user'];
+    }
+
     header("Location: /user/login");
   }
 
