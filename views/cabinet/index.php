@@ -38,7 +38,7 @@
                   <h1>Кабинет пользователя</h1>
                 <?php endif; ?>
 
-                <h3 class="text-capitalize">Привет, <?php echo $user['name']; ?>!</h3>
+                <h3 class="text-capitalize">Привет, <?=$user['name']; ?>!</h3>
 
                 <a class="btn btn-link" href="/cabinet/edit">Редактировать данные</a>
                 <a class="btn btn-link" href="/user/logout/">Выход</a>

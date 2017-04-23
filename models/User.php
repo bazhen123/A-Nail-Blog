@@ -4,21 +4,20 @@ class User
 {
 
   public static function register($name, $email, $password, $role)
-{
-$db = Db::getConnection();
-$sql = 'INSERT INTO user (name, email, password, role, active) VALUES (:name, :email, :password, :role, :active)';
-$active = 0;
+  {
+    $db = Db::getConnection();
+    $sql = 'INSERT INTO user (name, email, password, role, active) VALUES (:name, :email, :password, :role, :active)';
+    $active = 0;
 
-$result = $db->prepare($sql);
-$result->bindParam(':name', $name, PDO::PARAM_STR);
-$result->bindParam(':email', $email, PDO::PARAM_STR);
-$result->bindParam(':password', $password, PDO::PARAM_STR);
-$result->bindParam(':role', $role, PDO::PARAM_STR);
-$result->bindParam(':active', $active, PDO::PARAM_STR);
+    $result = $db->prepare($sql);
+    $result->bindParam(':name', $name, PDO::PARAM_STR);
+    $result->bindParam(':email', $email, PDO::PARAM_STR);
+    $result->bindParam(':password', $password, PDO::PARAM_STR);
+    $result->bindParam(':role', $role, PDO::PARAM_STR);
+    $result->bindParam(':active', $active, PDO::PARAM_STR);
 
-return $result->execute();
-
-}
+    return $result->execute();
+  }
 
   /*
    * Проверяем имя: не менее, чем 2 символа
@@ -189,6 +188,8 @@ return $result->execute();
     }
 
     header("Location: /user/login");
+
+    return true;
   }
 
   public static function isGuest()
@@ -201,12 +202,13 @@ return $result->execute();
   }
 
   /**
-   * Returns product item by id
+   * Returns user by id
    * @param integer $id
    */
   public static function getUserById($id)
   {
-    if ($id) {
+    if ($id)
+    {
       $db = Db::getConnection();
       $sql = 'SELECT * FROM user WHERE id = :id';
 
@@ -220,6 +222,48 @@ return $result->execute();
       return $result->fetch();
     }
     return false;
+  }
+  public static function getUserByEmail($email)
+  {
+    if ($email)
+    {
+      $db = Db::getConnection();
+      $sql = 'SELECT * FROM user WHERE email = :email';
+
+      $result =$db->prepare($sql);
+      $result->bindParam(':email', $email, PDO::PARAM_INT);
+
+      // Указываем, что хотим получить данные в виде массива
+      $result->setFetchMode(PDO::FETCH_ASSOC);
+      $result->execute();
+
+      return $result->fetch();
+    }
+    return false;
+  }
+
+  /*
+   * Обновление пароля в БД
+   * @param string $email
+   * @param string $password
+   */
+  public static function updatePassword($password, $email)
+  {
+    if ($password && $email)
+    {
+      $db = Db::getConnection();
+      $sql = 'UPDATE user SET password = :password WHERE email = :email';
+
+      $result = $db->prepare($sql);
+      $result->bindParam(':password', $password, PDO::PARAM_INT);
+      $result->bindParam(':email', $email, PDO::PARAM_INT);
+      $result->execute();
+
+      return true;
+    }
+
+    return false;
+
   }
 
   /*

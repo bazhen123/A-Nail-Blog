@@ -22,7 +22,34 @@ h6 {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 800;
 }
-
+.preloader{
+    background-color: rgba(255, 255, 255, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    color: #2C75FF;
+}
+.parent{
+    margin-left: auto;
+    margin-right: auto;
+    height: 100vh;
+    background: #dedede;
+    text-align: center;
+}
+.parent::before{
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+}
+.child{
+    display: inline-block;
+    vertical-align: middle;
+}
 .label-info {
     color: #fff;
     background-color: #2C75FF;
@@ -525,7 +552,8 @@ form .row:first-child .floating-label-form-group {
 
 #registerForm .btn,
 #loginForm .btn,
-#contactForm .btn {
+#contactForm .btn,
+#restoreForm .btn{
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-size: 14px;

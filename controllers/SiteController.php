@@ -15,6 +15,8 @@ class SiteController
 
   public function actionContact()
   {
+    $title = 'A Nail Blog - Контакты';
+
     $categories     = array();
     $topArticles    = array();
     $latestComments = array();

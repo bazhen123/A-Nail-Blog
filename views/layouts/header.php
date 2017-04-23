@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title><?php echo $title;?></title>
+  <title><?=$title;?></title>
 
   <!-- Custom Fonts -->
 
@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
   <!-- fotorama.css -->
-  <link href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <!--<link href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">-->
 
   <link rel="stylesheet" href="/template/css/styles.css">
 
@@ -32,6 +32,8 @@
   <![endif]-->
 </head>
 <body>
+
+<div class="preloader"></div>
 
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -64,11 +66,11 @@
           <li>
             <a href="/user/login/">Войти</a>
           </li>
-        <?php else: ?>
+        <? else: ?>
           <li>
             <a href="/cabinet/">Аккаунт</a>
           </li>
-        <?php endif; ?>
+        <? endif; ?>
       </ul>
     </div>
     <!-- /.navbar-collapse -->

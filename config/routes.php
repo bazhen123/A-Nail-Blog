@@ -1,7 +1,7 @@
 <?php
 
 return array(
-
+  'user/restorepass/([a-zA-Z0-9]+)'       => 'user/restorepass/$1',     // actionRestorepass в UserController
   'user/activate/([a-zA-Z0-9]+)'          => 'user/activate/$1',        // actionActivate в UserController
   'user/comments'                         => 'user/comments',           // actionComment в UserController
   'user/register'                         => 'user/register',           // actionRegister в UserController

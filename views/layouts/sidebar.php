@@ -15,10 +15,10 @@
       <div class="panel-heading">Категории</div>
       <div class="list-group">
         <?php foreach($categories as $categoryItem):?>
-          <a href="/blog/category/<?php echo $categoryItem['id'];?>/page-1" class="list-group-item <?php if ($category_id == $categoryItem['id']) echo "active";?>">
-            <span class="badge"><?php echo $categoryItem['count_art'];?></span> <?php echo $categoryItem['name'];?>
+          <a href="/blog/category/<?=$categoryItem['id'];?>/page-1" class="list-group-item <?php if ($category_id == $categoryItem['id']) echo "active";?>">
+            <span class="badge"><?=$categoryItem['count_art'];?></span> <?=$categoryItem['name'];?>
           </a>
-        <?php endforeach;?>
+        <? endforeach;?>
       </div>
     </div>
 
@@ -26,11 +26,11 @@
       <div class="panel-heading">Топ статей</div>
       <div class="list-group">
         <?php foreach ($topArticles as $topArticle):?>
-          <a class="list-group-item" href="/blog/article/<?php echo $topArticle['id'];?>">
-            <h4 class="list-group-item-heading"><?php echo $topArticle['title'];?></h4>
-            <p class="list-group-item-text"><?php echo mb_substr(strip_tags($topArticle['text']), 0, 85, 'utf-8') . ' ...';?></p>
+          <a class="list-group-item" href="/blog/article/<?=$topArticle['id'];?>">
+            <h4 class="list-group-item-heading"><?=$topArticle['title'];?></h4>
+            <p class="list-group-item-text"><?=mb_substr(strip_tags($topArticle['text']), 0, 85, 'utf-8') . ' ...';?></p>
           </a>
-        <?php endforeach;?>
+        <? endforeach;?>
       </div>
     </div>
 
@@ -41,16 +41,16 @@
           <?php $user = User::getUserById($latestComment['id']);?>
           <div class="media">
             <div class="media-left">
-              <a href="/blog/article/<?php echo $latestComment['article_id'];?>#comment_id<?php echo $latestComment['id'];?>">
+              <a href="/blog/article/<?=$latestComment['article_id'];?>#comment_id<?=$latestComment['id'];?>">
                 <div class="comment_img" style="background-image: url('https://www.gravatar.com/avatar/<?=md5($user['email']);?>?s=64');"></div>
               </a>
             </div>
             <div class="media-body">
-              <h4 class="media-heading"><?php echo $latestComment['author'];?></h4>
-              <?php echo mb_substr(strip_tags($latestComment['text']), 0, 45, 'utf-8') . '...';?>
+              <h4 class="media-heading"><?=$latestComment['author'];?></h4>
+              <?=mb_substr(strip_tags($latestComment['text']), 0, 45, 'utf-8') . '...';?>
             </div>
           </div>
-        <?php endforeach;?>
+        <? endforeach;?>
       </div>
     </div>
 
@@ -59,7 +59,7 @@
         <h2>About Author</h2>
         <img src="http://placehold.it/350x500g" class="img-rounded img-responsive center-block" />
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
-        <a class="btn btn-read-more" href="#">Подробно &raquo;</a></p>
+        <a class="btn btn-read-more" href="#">Подробно &raquo;</a>
       </div>
     </div>
 

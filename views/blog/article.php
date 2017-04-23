@@ -29,13 +29,11 @@
               <?php foreach($categories as $categoryItem):?>
                 <?php if ($categoryItem['id'] == $blogItem['category_id']):?>
                   <li>
-                    <a href="/blog/category/<?php echo $categoryItem['id'];?>">
-                      <?php echo $categoryItem['name'];?>
-                    </a>
+                    <a href="/blog/category/<?=$categoryItem['id'];?>"><?=$categoryItem['name'];?></a>
                   </li>
-                <?php endif;?>
-              <?php endforeach;?>
-              <li class="active"><?php echo $blogItem['title'];?></li>
+                <? endif;?>
+              <? endforeach;?>
+              <li class="active"><?=$blogItem['title'];?></li>
             </ol>
           </div>
 
@@ -46,7 +44,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <h3>
-                    <strong class="post-title text-capitalize"><?php echo $blogItem['title'];?></strong>
+                    <strong class="post-title text-capitalize"><?=$blogItem['title'];?></strong>
                   </h3>
                 </div>
               </div>
@@ -54,12 +52,12 @@
               <?php $date = Blog::getDateTimeExplode($blogItem['datetime']);?>
               <div class="row">
                 <div class="col-md-12 post-header-line">
-                  <span class="glyphicon glyphicon-eye-open"></span> <?php echo $blogItem['views'];?> |
-                  <span class="glyphicon glyphicon-user"></span> <a href="#"><?php echo $blogItem['author_name'];?></a> |
+                  <span class="glyphicon glyphicon-eye-open"></span> <?=$blogItem['views'];?> |
+                  <span class="glyphicon glyphicon-user"></span> <a href="#"><?=$blogItem['author_name'];?></a> |
                   <span class="glyphicon glyphicon-calendar"></span>
-                  <time datetime="<?php echo $blogItem['datetime'];?>">
-                    <?php echo $date['day']. ' ' . $date['month'] . ' ' . $date['year'];?> |</time>
-                  <span class="glyphicon glyphicon-comment"></span><a href="#"> <?php echo $blogItem['count'];?></a> |
+                  <time datetime="<?=$blogItem['datetime'];?>">
+                    <?=$date['day']. ' ' . $date['month'] . ' ' . $date['year'];?> |</time>
+                  <span class="glyphicon glyphicon-comment"></span><a href="#"> <?=$blogItem['count'];?></a> |
                   <i class="fa fa-hashtag" aria-hidden="true"></i> Тэги :
                   <a href="#" class="label label-info">#Ногти</a>
                   <a href="#" class="label label-info">#Маникюр</a>
@@ -75,11 +73,11 @@
                     $images = explode(',', $blogItem['image']);
                   ?>
                   <?php foreach ($images as $image):?>
-                    <img src="<?php echo $image;?>" alt="" class="img-responsive center-block">
-                  <?php endforeach;?>
+                    <img src="<?=$image;?>" alt="" class="img-responsive center-block">
+                  <? endforeach;?>
                 </div>
                 <div class="col-md-12">
-                  <p><?php echo $blogItem['text'];?></p>
+                  <p><?=$blogItem['text'];?></p>
                   <p><a class="btn btn-read-more" href="javascript:history.back();">&laquo; Назад</a></p>
                 </div>
               </div>

@@ -38,7 +38,7 @@
                   <div class="col-md-12">
                     <h4>
                       <strong>
-                        <a href="/blog/article/<?php echo $postItem['id'];?>" class="post-title text-capitalize"><?php echo $postItem['title'];?></a>
+                        <a href="/blog/article/<?=$postItem['id'];?>" class="post-title text-capitalize"><?=$postItem['title'];?></a>
                       </strong>
                     </h4>
                   </div>
@@ -46,47 +46,47 @@
                 <div class="row">
                   <div class="col-md-12 post-header-line">
                     <span class="glyphicon glyphicon-eye-open"></span>
-                    <span title="Количество просмотров"><?php echo $postItem['views'];?></span> |
+                    <span title="Количество просмотров"><?=$postItem['views'];?></span> |
 
                     <span class="glyphicon glyphicon-user"></span>
-                    <a href="#" title="Автор статьи"><?php echo $postItem['author_name'];?></a> |
+                    <a href="#" title="Автор статьи"><?=$postItem['author_name'];?></a> |
 
                     <span class="glyphicon glyphicon-calendar" title=""></span>
-                    <time datetime="<?php echo $postItem['datetime'];?>" title="Дата публикации">
-                      <?php echo $date['day']. ' ' . $date['month'] . ' ' . $date['year'];?></time> |
+                    <time datetime="<?=$postItem['datetime'];?>" title="Дата публикации">
+                      <?=$date['day']. ' ' . $date['month'] . ' ' . $date['year'];?></time> |
 
                     <span class="glyphicon glyphicon-comment"></span>
-                    <a href="#" title="Количество комментариев"> <?php echo $postItem['count'];?></a>
+                    <a href="#" title="Количество комментариев"> <?=$postItem['count'];?></a>
 
                     <i class="fa fa-hashtag" aria-hidden="true"></i> Тэги :
                     <?php $tags = explode(',', $postItem['tags']);?>
                     <?php foreach ($tags as $tag):?>
-                      <a href="#" class="label label-info">#<?php echo $tag;?></a>
-                    <?php endforeach;?>
+                      <a href="#" class="label label-info">#<?=$tag;?></a>
+                    <? endforeach;?>
 
                   </div>
                 </div>
                 <div class="row post-content">
                   <div class="col-md-3">
-                    <a href="/blog/article/<?php echo $postItem['id'];?>">
+                    <a href="/blog/article/<?=$postItem['id'];?>">
                       <?php
                       $img = explode(',', $postItem['image']);
                       ?>
-                      <img src="<?php echo $img[0];?>" alt="" class="img-responsive center-block">
+                      <img src="<?=$img[0];?>" alt="" class="img-responsive center-block">
                     </a>
                   </div>
                   <div class="col-md-9">
-                    <p><?php echo mb_substr(strip_tags($postItem['text']), 0, 120, 'utf-8') . ' ...';?></p>
-                    <p><a class="btn btn-read-more" href="/blog/article/<?php echo $postItem['id'];?>">Подробно &raquo;</a></p>
+                    <p><?=mb_substr(strip_tags($postItem['text']), 0, 120, 'utf-8') . ' ...';?></p>
+                    <p><a class="btn btn-read-more" href="/blog/article/<?=$postItem['id'];?>">Подробно &raquo;</a></p>
                   </div>
                 </div>
               </div>
             </div>
 
-          <?php endforeach;?>
+          <? endforeach;?>
           <!-- Pagination -->
-          <<div id="pagination" class="row">
-            <?php echo $pagination->get();?>
+          <div id="pagination" class="row">
+            <?=$pagination->get();?>
           </div>
 				</div>
 			</div>

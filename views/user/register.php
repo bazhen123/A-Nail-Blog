@@ -31,9 +31,9 @@
 
             <?php if($success):?>
               <div class="row">
-                <p class="help-block text-success"><?php echo $success;?></p>
+                <p class="help-block text-success"><?=$success;?></p>
               </div>
-            <?php else:?>
+            <? else:?>
 
             <div class="row">
               <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -43,7 +43,7 @@
                     <div class="form-group col-xs-12 floating-label-form-group controls">
                       <label>Имя или Ник</label>
                       <input type="text" name="name" class="form-control" placeholder="Имя или Ник"
-                             value="<?php echo $name; ?>" required data-toggle="help-block" data-target="#name">
+                             value="<?=$name;?>" required data-toggle="help-block" data-target="#name">
                       <p id="name" class="help-block text-danger">
                         <?php if (isset($errors['name'])) echo $errors['name'];?>
                       </p>
@@ -54,7 +54,7 @@
                     <div class="form-group col-xs-12 floating-label-form-group controls">
                       <label>Email адрес</label>
                       <input type="email" name="email" class="form-control" placeholder="Email"
-                             value="<?php echo $email; ?>" required data-toggle="help-block" data-target="#email">
+                             value="<?=$email;?>" required data-toggle="help-block" data-target="#email">
                       <p id="email" class="help-block text-danger">
                         <?php if (isset($errors['email'])) echo $errors['email'];?>
                         <?php if (isset($errors['exists_email'])) echo $errors['exists_email'];?>
@@ -103,7 +103,7 @@
                 </form>
               </div>
             </div>
-            <?php endif;?>
+            <? endif;?>
 
           </div>
         </div>

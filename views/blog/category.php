@@ -29,9 +29,9 @@
 
                 <?php foreach($categories as $categoryItem):?>
                   <?php if ($category_id == $categoryItem['id']): ?>
-                    <li class="active"><?php echo $categoryItem['name'];?></li>
-                  <?php endif; ?>
-                <?php endforeach;?>
+                    <li class="active"><?=$categoryItem['name'];?></li>
+                  <? endif; ?>
+                <? endforeach;?>
 
               </ol>
             </div>
@@ -45,19 +45,19 @@
                     <div class="col-md-12">
                       <h4>
                         <strong>
-                          <a href="/blog/article/<?php echo $articleItem['id'];?>" class="post-title text-capitalize"><?php echo $articleItem['title'];?></a>
+                          <a href="/blog/article/<?=$articleItem['id'];?>" class="post-title text-capitalize"><?=$articleItem['title'];?></a>
                         </strong>
                       </h4>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12 post-header-line">
-                      <span class="glyphicon glyphicon-eye-open"></span> <?php echo $articleItem['views'];?> |
-                      <span class="glyphicon glyphicon-user"></span> <a href="#"><?php echo $articleItem['author_name'];?></a> |
+                      <span class="glyphicon glyphicon-eye-open"></span> <?=$articleItem['views'];?> |
+                      <span class="glyphicon glyphicon-user"></span> <a href="#"><?=$articleItem['author_name'];?></a> |
                       <span class="glyphicon glyphicon-calendar"></span>
-                      <time datetime="<?php echo $articleItem['datetime'];?>">
-                        <?php echo $date['day']. ' ' . $date['month'] . ' ' . $date['year'];?> |</time>
-                      <span class="glyphicon glyphicon-comment"></span><a href="#"> <?php echo $articleItem['count'];?></a> |
+                      <time datetime="<?=$articleItem['datetime'];?>">
+                        <?=$date['day']. ' ' . $date['month'] . ' ' . $date['year'];?> |</time>
+                      <span class="glyphicon glyphicon-comment"></span><a href="#"> <?=$articleItem['count'];?></a> |
                       <i class="fa fa-hashtag" aria-hidden="true"></i> Тэги :
                       <a href="#" class="label label-info">#Ногти</a>
                       <a href="#" class="label label-info">#Маникюр</a>
@@ -67,25 +67,25 @@
                   </div>
                   <div class="row post-content">
                     <div class="col-md-3">
-                      <a href="/blog/article/<?php echo $articleItem['id'];?>">
+                      <a href="/blog/article/<?=$articleItem['id'];?>">
                         <?php
                         $img = explode(',', $articleItem['image']);
                         ?>
-                        <img src="<?php echo $img[0];?>" alt="" class="img-responsive center-block">
+                        <img src="<?=$img[0];?>" alt="" class="img-responsive center-block">
                       </a>
                     </div>
                     <div class="col-md-9">
-                      <p><?php echo mb_substr(strip_tags($articleItem['text']), 0, 120, 'utf-8') . ' ...';?></p>
-                      <p><a class="btn btn-read-more" href="/blog/article/<?php echo $articleItem['id'];?>">Подробно &raquo;</a></p>
+                      <p><?=mb_substr(strip_tags($articleItem['text']), 0, 120, 'utf-8') . ' ...';?></p>
+                      <p><a class="btn btn-read-more" href="/blog/article/<?=$articleItem['id'];?>">Подробно &raquo;</a></p>
                     </div>
                   </div>
                 </div>
               </div>
 
-            <?php endforeach;?>
+            <? endforeach;?>
             <!-- Pagination -->
             <div id="pagination" class="row">
-              <?php echo $pagination->get();?>
+              <?=$pagination->get();?>
             </div>
 
           </div>

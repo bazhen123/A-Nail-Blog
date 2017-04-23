@@ -31,10 +31,10 @@
 
             <div class="col-sm-8 col-sm-offset-2 padding-right">
               <?php if (isset($successActive)): ?>
-                <p class="help-bloch text-success"><?php echo $successActive;?></p>
+                <p class="help-bloch text-success"><?=$successActive;?></p>
               <?php endif ;?>
               <?php if (isset($errorActive)): ?>
-                <p class="help-bloch text-danger"><?php echo $errorActive;?></p>
+                <p class="help-bloch text-danger"><?=$errorActive;?></p>
               <?php endif ;?>
             </div>
 
@@ -45,7 +45,7 @@
                   <div class="row control-group">
                     <div class="form-group col-xs-12 floating-label-form-group controls">
                       <label>Email адрес</label>
-                      <input type="email" name="email" class="form-control" placeholder="Email" value="<?php echo $email; ?>" required>
+                      <input type="email" name="email" class="form-control" placeholder="Email" value="<?=$email; ?>" required>
                       <p class="help-block text-danger"></p>
                     </div>
                   </div>
@@ -57,9 +57,9 @@
                       <p class="help-block text-danger">
                         <?php if (isset($errors) && is_array($errors)): ?>
                           <?php foreach ($errors as $error): ?>
-                            <?php echo $error;?>
+                            <?=$error;?>
                           <?php endforeach; ?>
-                        <?php endif ;?>
+                        <? endif ;?>
                       </p>
                     </div>
                   </div>
